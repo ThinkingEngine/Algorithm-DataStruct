@@ -14,7 +14,8 @@ public class ThreadTest {
 		
 		int[] srcss = {2,11,4,7,5};
 //		Algorithm.bubbleSort(srcss);
-		Algorithm.selectionSort(srcss);
+//		Algorithm.selectionSort(srcss);
+		Algorithm.insertionSort(srcss);
 	}
 
 }
