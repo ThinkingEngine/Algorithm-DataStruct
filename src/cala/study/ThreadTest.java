@@ -13,7 +13,8 @@ public class ThreadTest {
 //		t3.start();
 		
 		int[] srcss = {2,11,4,7,5};
-		Algorithm.bubbleSort(srcss);
+//		Algorithm.bubbleSort(srcss);
+		Algorithm.selectionSort(srcss);
 	}
 
 }

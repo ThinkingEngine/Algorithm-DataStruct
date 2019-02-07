@@ -27,13 +27,29 @@ public class Algorithm {
 		}
 
 		for (int i = 0; i < srcs.length; i++) {
-
 			System.out.println(srcs[i] + " ");
 		}
 	}
 	
 	//Ñ¡ÔñÅÅÐò
 	public static final void selectionSort(int[] srcs){
+		if(srcs == null || srcs.length == 0){
+			return;
+		}
+		
+		for(int i = 0;i < srcs.length-1;i++){
+			for(int j = i+1;j < srcs.length;j++){
+				if(srcs[j] < srcs[i]){
+					int temp = srcs[j];
+					srcs[j] = srcs[i];
+					srcs[i] = temp;
+				}
+			}
+		}
+		
+		for (int i = 0; i < srcs.length; i++) {
+			System.out.println(srcs[i] + " ");
+		}
 		
 	}
 }
