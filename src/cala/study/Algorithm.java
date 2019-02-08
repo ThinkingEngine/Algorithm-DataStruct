@@ -1,5 +1,7 @@
 package cala.study;
 
+import java.util.HashMap;
+
 /**
  * 算法学习
  */
@@ -103,9 +105,9 @@ public class Algorithm {
 			return;
 		}
 
-		//增量gap，并逐步缩小增量
+		// 增量gap，并逐步缩小增量
 		for (int gap = srcs.length / 2; gap > 0; gap /= 2) {
-			//从第gap个元素，逐个对其所在组进行直接插入排序操作
+
 			for (int i = gap; i < srcs.length; i++) {
 				int j = i;
 				int temp = srcs[j];
@@ -118,10 +120,50 @@ public class Algorithm {
 				}
 			}
 		}
-		
+
 		for (int i = 0; i < srcs.length; i++) {
 			System.out.println(srcs[i] + " ");
 		}
-		
+
+	}
+
+	// 快速排序
+	/**
+	 * 快速排序由 C. A. R. Hoare 在1962年提出。它的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，
+	 * 其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程
+	 * 可以递归进行，以此达到整个数据变成有序序列。
+	 * 
+	 * 思想:1.在待排序的元素任取一个元素作为基准(通常选第一个元素，但最的选择方法是从待排序元素中随机选取一个作为基准)，称为基准元素；
+	 * 
+	 * 2.将待排序的元素进行分区，比基准元素大的元素放在它的右边，比其小的放在它的左边；
+	 * 
+	 * 3.对左右两个分区重复以上步骤直到所有元素都是有序的。
+	 */
+	public static final void quickSort(int arr[],int _left,int _right) {
+
+		int left = _left;
+        int right = _right;
+        int temp = 0;
+        if(left <= right){   //待排序的元素至少有两个的情况
+            temp = arr[left];  //待排序的第一个元素作为基准元素
+            while(left != right){   //从左右两边交替扫描，直到left = right
+
+                while(right > left && arr[right] >= temp)  
+                     right --;        //从右往左扫描，找到第一个比基准元素小的元素
+                  arr[left] = arr[right];  //找到这种元素arr[right]后与arr[left]交换
+
+                while(left < right && arr[left] <= temp)
+                     left ++;         //从左往右扫描，找到第一个比基准元素大的元素
+                  arr[right] = arr[left];  //找到这种元素arr[left]后，与arr[right]交换
+
+            }
+            arr[right] = temp;    //基准元素归位
+            quickSort(arr,_left,left-1);  //对基准元素左边的元素进行递归排序
+            quickSort(arr, right+1,_right);  //对基准元素右边的进行递归排序
+        }        
+        for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i] + " ");
+		}
+
 	}
 }

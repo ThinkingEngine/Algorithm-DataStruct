@@ -16,7 +16,8 @@ public class ThreadTest {
 //		Algorithm.bubbleSort(srcss);
 //		Algorithm.selectionSort(srcss);
 //		Algorithm.insertionSort(srcss);
-		Algorithm.shellSort(srcss);
+//		Algorithm.shellSort(srcss);
+		Algorithm.quickSort(srcss, 0,srcss.length-1);
 	}
 
 }
